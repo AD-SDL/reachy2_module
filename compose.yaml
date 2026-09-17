@@ -1,0 +1,19 @@
+name: reachy2
+services:
+  reachy2:
+    container_name: reachy2
+    image: ghcr.io/ad-sdl/reachy2_module
+    network_mode: host
+    environment:
+      - USER_ID=${USER_ID:-1000}
+      - GROUP_ID=${GROUP_ID:-1000}
+      - reachy2_ip="reachy2.cels.anl.gov"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - ghcr.io/ad-sdl/reachy2_module:latest
+        - ghcr.io/ad-sdl/reachy2_module:dev
+    command: python -m reachy2_rest_node 
+    volumes:
+      - ./definitions:/home/madsci/definitions/
