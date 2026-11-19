@@ -12,4 +12,4 @@ A module to control the reachy2 robot
 1. Follow the installation and setup steps listed here: https://github.com/spiglerg/reachy2_quest_teleop
 2. Turn the headset on and run `bash scripts/start_quest.sh` from within the teleop repo
 3.  within the virtual environment you set up for the repo and from within the teleop repo folder, run `python scripts/teleop_reachy2.py --host 146.137.240.56 --dataset-name <your dataset name> \
-    --instruction "pick up the cup"`
+    --instruction "your instructions"`
