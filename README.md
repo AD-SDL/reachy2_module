@@ -22,4 +22,28 @@ A module to control the reachy2 robot
 11. Turn the headset on and run `./scripts/start_quest.sh` from within the teleop repo
 12.  within the virtual environment you set up for the repo and from within the teleop repo folder, run: \
      `python scripts/teleop_reachy2.py --host <your robot ip> --dataset-name <your dataset name> --instruction <your instructions>`
-13. Put on the headset and align the controllers with the robot hands, which will turn the text green. Press 'Y' to start the arm tracking. Futher instructions can be found in the repo readme: https://github.com/AD-SDL/reachy2_quest_teleop
+13. Put on the headset and align the controllers with the robot hands, which will turn the text green. Press 'Y' to start the arm tracking.
+
+
+### Controls
+
+| Input | Effect |
+|---|---|
+| Y (left) | Start tracking when both hands match the robot's hand posture; stop tracking otherwise. |
+| X short press | Stop tracking. While not tracking, align the operator frame without engaging. |
+| X long press (0.5 s) | Toggle head tracking. With `--display-camera auto`, also switches the view between head and torso cameras. |
+| Right grip | Start / stop recording an episode. |
+| A (right) | Save the episode. Tracking continues; the videos are encoded in the background. |
+| B (right) | Discard the episode. |
+| Triggers | Gripper opening, always active. |
+| Thumbsticks (`--base`) | Left stick: forward/back and strafe. Right stick: turn. |
+
+Typed in the terminal: `stop`, `align`, `head`, `base`, `quit`.
+
+Engaging: look at the robot's hands and hold your controllers in the same posture. The headset
+shows one distance per hand, green within 5 cm (`--engage-threshold-cm`), with a hint on how to
+move each controller. Press Y when both are green: the robot's hands continue from where they are
+and follow your hands 1:1. Where you stand does not matter, only the relative posture of your
+hands. Press Y or X to rest your arms, then Y again to continue.
+
+Further controls and information can be found in the repo readme: https://github.com/AD-SDL/reachy2_quest_teleop
